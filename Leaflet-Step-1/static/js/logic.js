@@ -11,9 +11,9 @@ var streetmap = L.tileLayer("https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}
 // Create our map, giving it the streetmap and earthquakes layers to display on load
 var myMap = L.map("map", {
   center: [
-    37.09, -95.71
+    48, -110
   ],
-  zoom: 5,
+  zoom: 3.6,
   layers: [streetmap]
 });
 
@@ -66,5 +66,27 @@ d3.json(queryUrl).then(function(data) {
     }
   }
 });
+
+// Create a lengend
+var legend = L.control({
+  position: 'bottomright',
+});
+
+legend.onAdd = function() {
+  var div = L.DomUtil.create("div", "legend");
+  div.innerHTML += "<h4>Depth (km)</h4>";
+  div.innerHTML += "<ul>"
+  div.innerHTML += "<li style='background: #00FF21'></li>0-10<br>";
+  div.innerHTML += "<li style='background: #F1FF00'></li>10–30<br>";
+  div.innerHTML += "<li style='background: #FFE400'></li>30–50<br>";
+  div.innerHTML += "<li style='background: #FCB521'></li>50–70<br>";
+  div.innerHTML += "<li style='background: #FC8F21'></li>70–90<br>";
+  div.innerHTML += "<li style='background: #FC2121'></li>90+<br>";
+  div.innerHTML += "</ul>"
+
+  return div;
+};
+
+legend.addTo(myMap);
 
  
