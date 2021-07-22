@@ -8,4 +8,4 @@ Used the [USGS GeoJSON feed](https://earthquake.usgs.gov/earthquakes/feed/v1.0/g
 
 Plotted the location of the returned geoJSON data to create circle markers whose size and color are correlated to the magnitude and depth of the quake. 
 
-Also, included a legend and popups over each datapoint that show the location, depth and magnitude of the quake. 
+For more clarity, included a legend and popups over each datapoint that show the location, depth and magnitude of the quake. 
